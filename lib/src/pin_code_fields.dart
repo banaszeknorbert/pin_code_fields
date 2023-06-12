@@ -1,5 +1,7 @@
 part of pin_code_fields;
 
+const flutterTest = bool.fromEnvironment('flutterTest', defaultValue: false);
+
 /// Pin code text fields which automatically changes focus and validates
 class PinCodeTextField extends StatefulWidget {
   /// The [BuildContext] of the application
@@ -376,7 +378,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
       parent: _controller,
       curve: Curves.elasticIn,
     ));
-    if (widget.showCursor) {
+    if (widget.showCursor && !flutterTest) {
       _cursorController.repeat();
     }
 
